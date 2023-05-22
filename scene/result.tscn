@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4vpalgi510eg"]
+
+[ext_resource type="Script" path="res://script/result.gd" id="1_r4ymx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yilkj"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxu4r"]
+font_size = 50
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4ymx")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.5
+offset_top = 87.0
+offset_right = 75.5
+offset_bottom = 159.0
+grow_horizontal = 2
+text = "Result"
+label_settings = SubResource("LabelSettings_yilkj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -62.0
+offset_right = 111.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "# Correct: 0
+# Wrong: 0"
+label_settings = SubResource("LabelSettings_jxu4r")

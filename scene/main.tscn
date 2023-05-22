@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmjbdj4o00d43"]
+
+[ext_resource type="Script" path="res://script/world.gd" id="1_tplt7"]
+[ext_resource type="Texture2D" uid="uid://bn71q7l14mc3" path="res://image/icon.svg" id="2_m05qo"]
+[ext_resource type="Script" path="res://script/image.gd" id="3_errgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xsrrm"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2gp2"]
+font_size = 30
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptj1c"]
+font_size = 30
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbhmx"]
+font_size = 30
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_tplt7")
+
+[node name="LeftImage" type="Sprite2D" parent="."]
+position = Vector2(256, 384)
+texture = ExtResource("2_m05qo")
+script = ExtResource("3_errgc")
+
+[node name="RightImage" type="Sprite2D" parent="."]
+position = Vector2(768, 384)
+texture = ExtResource("2_m05qo")
+offset = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("3_errgc")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 12.0
+offset_right = 100.0
+offset_bottom = 125.0
+grow_horizontal = 2
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
+size_flags_horizontal = 4
+text = "A/B Test (Round 0/0)"
+label_settings = SubResource("LabelSettings_xsrrm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Details" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -366.0
+offset_top = 117.0
+offset_right = 366.0
+offset_bottom = 162.0
+grow_horizontal = 2
+text = "Click the image which is more likely to be an answer"
+label_settings = SubResource("LabelSettings_d2gp2")
+
+[node name="Status" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = -106.0
+offset_right = -35.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Correct / Wrong : 0 / 0"
+label_settings = SubResource("LabelSettings_ptj1c")
+
+[node name="NextButton" type="Button" parent="GUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -113.0
+offset_right = -75.0
+offset_bottom = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next >"
+
+[node name="Answer_L" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -164.0
+offset_right = -199.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
+text = "Answer"
+label_settings = SubResource("LabelSettings_qbhmx")
+
+[node name="Answer_R" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 204.0
+offset_top = -164.0
+offset_right = 313.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Answer"
+label_settings = SubResource("LabelSettings_qbhmx")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e4tpu4llxd4"]
+
+[sub_resource type="GDScript" id="GDScript_hjgbo"]
+script/source = "extends Control
+
+var diag_resource
+
+func _ready():
+	diag_resource = $LoadResource
+	
+	diag_resource.connect(\"file_selected\", diag_selected)
+	
+func diag_selected(path):
+	Global.file_path = path
+	get_tree().change_scene_to_file(\"res://scene/main.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_pb601"]
+font_size = 80
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_hjgbo")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.5
+offset_top = 131.0
+offset_right = 158.5
+offset_bottom = 244.0
+grow_horizontal = 2
+text = "A/B Test"
+label_settings = SubResource("LabelSettings_pb601")
+
+[node name="LoadResource" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(255, 350)
+size = Vector2i(500, 350)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2
