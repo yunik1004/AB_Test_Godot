@@ -9,8 +9,8 @@ var text_status
 var text_answer = {"L": null, "R": null}
 
 # Hyperparameter
-var width = 400
-var height = 400
+var width_default = 400
+var height_default = 400
 
 # Status
 var correct_pos
@@ -105,8 +105,23 @@ func update_img():
 		
 	imgs["L"].load_png_from_buffer(reader.read_file(texture_l_path))
 	imgs["R"].load_png_from_buffer(reader.read_file(texture_r_path))
-	imgs["L"].resize(width, height)
-	imgs["R"].resize(width, height)
+	
+	# Resize the images
+	var width_img = imgs["L"].get_width()
+	var height_img = imgs["L"].get_height()
+	
+	var width_final
+	var height_final
+	if width_img >= height_img:
+		width_final = width_default
+		height_final = int(height_img * height_default / width_img)
+	else:
+		height_final = height_default
+		width_final = int(width_img * width_default / height_img)
+
+	imgs["L"].resize(width_final, height_final)
+	imgs["R"].resize(width_final, height_final)
+	
 	textures["L"].set_image(imgs["L"])
 	textures["R"].set_image(imgs["R"])
 	

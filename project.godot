@@ -24,7 +24,3 @@ Global="*res://script/global.gd"
 window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
-
-[rendering]
-
-textures/vram_compression/import_s3tc_bptc=true
